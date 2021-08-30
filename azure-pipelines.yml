@@ -5,7 +5,7 @@ pool:
   name: gwl-devops-agent-pool
 
 steps:
-- script: curl -sL https://aka.ms/InstallAzureCLIDev | sudo bash
+- script: ccurl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
   displayName: 'Install the Azure CLI'
 
 - task: AzureCLI@2
