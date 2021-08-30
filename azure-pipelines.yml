@@ -5,7 +5,7 @@ pool:
   name: gwl-devops-agent-pool
 
 steps:
-- script: ccurl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+- script: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
   displayName: 'Install the Azure CLI'
 
 - task: AzureCLI@2
@@ -14,3 +14,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az webapp up -n $(App_Name) --os-type Linux --resource-group $(Resource_Group_Name) --location uksouth --runtime "python|3.6"'
+    workingDirectory: 'src/'
+  displayName: "Deploy application to Azure"
